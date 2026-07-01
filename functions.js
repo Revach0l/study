@@ -40,6 +40,7 @@ class mathfunctions {
     }
 
     combination(x, y) {
+        // 要是可以直接从函数过程看出数学过程就好了
         if (x > y){
             [x, y] = [y, x];
         }
