@@ -39,15 +39,33 @@ class mathfunctions {
         return x * this.factorial(x - 1);
     }
 
-    combination(n, m) {
-        // 从n个item中获取m个item的集合
-        // 要是可以直接从函数过程看出数学过程就好了，这样地话应当先写排列数，再写组合数
-        // 保证n > m
-        if (m > n){
+    /**
+     * 虽然以前好像更习惯用n表示总数的，但m在前面，c m n也好看好读一点
+     * 从m个item中拿取n个item的排列，即数组
+     * @param {*} m 
+     * @param {*} n 
+     */
+    permutation(m, n) {
+        if (m < n) {
             [m, n] = [n, m];
         }
-        return this.factorial(m)  / this.factorial(n) / this.factorial(m - n);
+        return this.factorial(m) / this.factorial(n)
 
+    }
+
+    /**
+     * 从n个item中拿出m个item的集合
+     * @param {*} m 
+     * @param {*} n 
+     * @returns 
+     */
+    combination(m, n) {
+        // m > n
+        if (m < n) {
+            [m, n] = [n, m];
+        }
+        let res = this.permutation(m, n) / this.factorial(n - m);
+        return res;
     }
     
 }
