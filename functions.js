@@ -3,6 +3,7 @@
 class mathfunctions {
     // 为了让其语法看起来更像java等语言，类中的方法就需要省略关键字function
     constructor(){
+        // javascript类型定义入参是写在构造函数里的，这一点希望体现一下
         console.log('i am an object');
         // 属性需要用this，不然构造函数里的变量会被当成局部变量，函数执行了就没了
         // 并且属性值没有变量声明，和方法一样
