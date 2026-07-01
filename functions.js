@@ -39,12 +39,14 @@ class mathfunctions {
         return x * this.factorial(x - 1);
     }
 
-    combination(x, y) {
-        // 要是可以直接从函数过程看出数学过程就好了
-        if (x > y){
-            [x, y] = [y, x];
+    combination(n, m) {
+        // 从n个item中获取m个item的集合
+        // 要是可以直接从函数过程看出数学过程就好了，这样地话应当先写排列数，再写组合数
+        // 保证n > m
+        if (m > n){
+            [m, n] = [n, m];
         }
-        return this.factorial(y)  / this.factorial(x) / this.factorial(y - x);
+        return this.factorial(m)  / this.factorial(n) / this.factorial(m - n);
 
     }
     
