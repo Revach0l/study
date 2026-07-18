@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>小可爱的游乐场</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 500px;
+      margin: 60px auto;
+      text-align: center;
+    }
+    button {
+      padding: 10px 24px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #box {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #aaa;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🦋 活起来的页面</h1>
+
+  <button onclick="sayHello()">点我</button>
+  <button onclick="changeColor()">换色</button>
+  <button onclick="addText()">加一行字</button>
+  <button onclick="clearAll()">清空</button>
+
+  <input id="msg" type="text" placeholder="想说啥..." style="padding:8px;width:60%">
+  <button onclick="postMsg()">发送</button>
+
+  <div id="box">
+    这里会变魔法 🪄
+  </div>
+
+  <script>
+    let count = 0
+
+    function sayHello() {
+      alert('Hello！你现在看到的这个弹窗，就是 JS 在干活')
+    }
+
+    function changeColor() {
+      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff']
+      document.getElementById('box').style.background = colors[count % colors.length]
+      count++
+    }
+
+    function addText() {
+      const p = document.createElement('p')
+      p.textContent = '🦋 我是一行被 JS 创造出来的字！原神，启动！'
+      document.getElementById('box').appendChild(p)
+    }
+
+    function clearAll() {
+      document.getElementById('box').innerHTML = '又变空了...'
+    }
+
+    function postMsg() {
+    const input = document.getElementById('msg')
+    const text = input.value
+    if (!text) return
+    const p = document.createElement('p')
+    p.textContent = '💬 ' + text
+    document.getElementById('box').appendChild(p)
+    input.value = ''  // 清空输入框
+  }
+  </script>
+</body>
+</html>
